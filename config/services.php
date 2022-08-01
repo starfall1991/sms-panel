@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'sms' => [
+        'url'  => env('SMS_URL', 'google.com'),
+        'from' => env('SMS_FROM', 989380609996),
+    ],
+
 ];

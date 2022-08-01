@@ -12,9 +12,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('users', static function (Blueprint $table) {
+        Schema::create('sms', static function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mobile')->unique();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('text', 1000);
+            $table->timestamp('done_at')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('sms');
     }
 };
